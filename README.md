@@ -38,7 +38,7 @@ $ ./console.py
 
 ## Examples
 
-### Contributors
+## Contributors
 
 This project exists thanks to all the people who contribute. 
 
