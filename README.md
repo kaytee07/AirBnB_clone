@@ -42,5 +42,5 @@ $ ./console.py
 
 This project exists thanks to all the people who contribute. 
 
-- [https://github.com/divineezelibe/AirBnB_clone/graphs/contributors](#Divine Ezelibe)
-- [https://github.com/divineezelibe/AirBnB_clone/graphs/contributors](#Winful Taylor)
+- [https://github.com/divineezelibe/AirBnB_clone/graphs/contributors](#DivineEzelibe)
+- [https://github.com/divineezelibe/AirBnB_clone/graphs/contributors](#WinfulTaylor)
