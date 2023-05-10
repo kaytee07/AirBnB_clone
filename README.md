@@ -5,8 +5,8 @@
 ### Contents
 
 - [Description](#Description)
-- [How to Start](#How to Sart)
-- [How to use it](#How to use it)
+- [How to Start](#HowtoSart)
+- [How to use it](#Howtouseit)
 - [Examples](#Examples)
 - [Contributors](#Contributors)
 
@@ -42,4 +42,5 @@ $ ./console.py
 
 This project exists thanks to all the people who contribute. 
 
-[https://github.com/divineezelibe/AirBnB_clone/graphs/contributors](#Divine Ezelibe and Winful Taylor)
+- [https://github.com/divineezelibe/AirBnB_clone/graphs/contributors](#Divine Ezelibe)
+- [https://github.com/divineezelibe/AirBnB_clone/graphs/contributors](#Winful Taylor)
