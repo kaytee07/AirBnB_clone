@@ -5,8 +5,8 @@
 ### Contents
 
 - [Description](#Description)
-- [How to Start](#Howtostart)
-- [How to use it](#Howtouseit)
+- [How to Start](#How to Sart)
+- [How to use it](#How to use it)
 - [Examples](#Examples)
 - [Contributors](#Contributors)
 
@@ -41,4 +41,5 @@ $ ./console.py
 ### Contributors
 
 This project exists thanks to all the people who contribute. 
-<a href="[https://github.com/RichardLitt/standard-readme/graphs/contributors](https://github.com/divineezelibe/AirBnB_clone/graphs/contributors)"># Divine Ezelibe and Winful Taylor</a>
+
+[https://github.com/divineezelibe/AirBnB_clone/graphs/contributors](#Divine Ezelibe and Winful Taylor)
