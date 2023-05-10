@@ -16,10 +16,29 @@ We built a simple console (command interpreter) for Airclone project, which will
 ## How to Start
 
 ## How to use it
+To use this program:
+- Install python3, how to use a command line interpreter, a computer with Ubuntu 14.04, python3 and pep8 style corrector.
+- Clone the repository and run the console.py
+
+```
+$ git clone https://github.com/------/AirBnB_clone.git
+```
+
+| **Method**                | **Description**                                                                                                         |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| [create](./console.py)    | Creates object of given class      
+| [help](./console.py)      | Prints information about specific command                                                                               |
+| [quit/ EOF](./console.py) | Exit the program
+
+- Navigate to the cloned directory and run the command below
+
+```
+$ ./console.py
+```
 
 ## Examples
 
 ### Contributors
 
 This project exists thanks to all the people who contribute. 
-<a href="https://github.com/RichardLitt/standard-readme/graphs/contributors"><img src="https://opencollective.com/standard-readme/contributors.svg?width=890&button=false" /></a>
+<a href="[https://github.com/RichardLitt/standard-readme/graphs/contributors](https://github.com/divineezelibe/AirBnB_clone/graphs/contributors)"># Divine Ezelibe and Winful Taylor</a>
