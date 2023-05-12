@@ -5,14 +5,54 @@ Unittest classes inherits unittest.TestCase:
     TestBaseModel_save
     TestBaseModel_to_dict
 """
-import os
 import models
 import unittest
+import os
 from datetime import datetime
 from models.base_model import BaseModel
 
+class TestBaseModel_instantiation(unittest.TestCase):
+    """Functions we wrote to test the instantiation of the BaseModel class."""
+
+    def test_no_args_instantiates(self):
+        self.assertEqual(BaseModel, type(BaseModel()))
+        
+    def test_id_is_public_str(self):
+        self.assertEqual(str, type(BaseModel().id))
+
+    def test_created_at_is_public_datetime(self):
+        self.assertEqual(datetime, type(BaseModel().created_at))
+
+    def test_str_representation(self):
+        dt = datetime.today()
+        dt_repr = repr(dt)
+        bm = BaseModel()
+        bm.id = "123456"
+        bm.created_at = bm.updated_at = dt
+        bmstr = bm.__str__()
+        self.assertIn("[BaseModel] (123456)", bmstr)
+        self.assertIn("'id': '123456'", bmstr)
+        self.assertIn("'created_at': " + dt_repr, bmstr)
+        self.assertIn("'updated_at': " + dt_repr, bmstr)
+
+    def test_no_args(self):
+        base_model = BaseModel(None)
+        self.assertNotIn(None, base_model.__dict__.values())
+
+    def test_instantiation_with_kwargs(self):
+        date_time = datetime.today()
+        dt_iso = date_time.isoformat()
+        base_model = BaseModel(id="540", created_at=date_time_iso, updated_at=date_time_iso)
+        self.assertEqual(base_model.id, "540")
+        self.assertEqual(base_model.created_at, date_time)
+        self.assertEqual(base_model.updated_at, date_time)
+
+    def test_instantiation_with_no_kwargs(self):
+        with self.assertRaises(TypeError):
+            BaseModel(id=None, created_at=None, updated_at=None)
+            
 class TestBaseModel_to_dict(unittest.TestCase):
-    """Unittest methods to test to_dict method of the BaseModel class."""
+    """Functions we wrote to test to_dict method of the BaseModel class."""
 
     def test_to_dict_type(self):
         base_model = BaseModel()
