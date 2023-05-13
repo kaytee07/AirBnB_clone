@@ -4,6 +4,7 @@
 
 import uuid
 import datetime
+from __init__ import storage
 
 class BaseModel:
   """defines all common attributes/methods for other classes: """
@@ -23,6 +24,7 @@ class BaseModel:
         else:
           self.key = value
       else:
+        storage.new()
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         
@@ -31,6 +33,7 @@ class BaseModel:
     return f"class_n {self.id} {self.__dict__} "
   
   def save(self):
+    storage.save()
     self.updated_at = datetime.now()
 
   def to_dict(self): 
