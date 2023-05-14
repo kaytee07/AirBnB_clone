@@ -6,7 +6,7 @@ Unittest classes inherits unittest.TestCase:
     TestBaseModel_to_dict
 """
 import sys
-sys.path.append("../../models")
+sys.path.append("/models")
 import models
 import unittest
 import os
