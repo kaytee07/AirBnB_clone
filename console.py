@@ -49,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
 
         storage.reload()
         all_objs = storage.all()
-        keys = f"{className}.{ids}"
+        keys = "{}.{}".format(className, ids)
 
         try:
             found_obj = all_objs[keys]
@@ -78,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
 
         storage.reload()
         all_objs = storage.all()
-        keys = f"{className}.{ids}"
+        keys ="{}.{}".format(className, ids)
 
         try:
             all_objs.pop(keys)
@@ -106,14 +106,14 @@ class HBNBCommand(cmd.Cmd):
         className, ids, attr, value = args.split()
 
         try:
-            globals()[className]
+            globals()['className']
         except KeyError:
             print("** class doesn't exist **")
             return
 
         storage.reload()
         all_objs = storage.all()
-        keys = f"{className}.{ids}"
+        keys = "{}.{}".format(className, ids)
 
         try:
             found_obj = all_objs[keys]
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing")
 
         try:
-            global()[className]
+            globals()['className']
         except KeyError:
             print("class doesn't exist")
 
