@@ -18,7 +18,7 @@ class BaseModel:
                 else:
                     if key == "created_at" or key == "updated_at":
                         # Parse the string into a datetime object
-                        datetime_obj = datetime.datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
+                        datetime_obj = datetime.datetime.strptime(value)
                         value = datetime.datetime.isoformat(datetime_obj)
                         setattr(self, key, value)
                     else:
