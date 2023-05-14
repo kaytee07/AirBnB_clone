@@ -12,13 +12,13 @@ class BaseModel:
   def __init__(self, *args, **kwargs):
     """this method is to initiali """
     #self.id = str(uuid.uuid4())
-    #self.created_at = datetime.datetime.now()
-    self.updated_at = datetime.datetime.now()
+    #self.created_at = datetime.now()
+    self.updated_at = datetime.now()
     
     if len(kwargs) != 0:
       for key, value in kwargs.items():
         if key == "created_at" || key =="updated_at"
-        self.key = datetime.datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
+        self.key = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
         elif key == "__class__":
           continue
         else:
