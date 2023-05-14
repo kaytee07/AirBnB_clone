@@ -20,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
         try:
-            cls = globals()[className]
+            cls = global className
         except KeyError:
             print("** class doesn't exist **")
             return
@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         className, ids = args.split()
 
         try:
-            globals()[className]
+            global className
         except KeyError:
             print("** class doesn't exist **")
             return
@@ -71,7 +71,7 @@ class HBNBCommand(cmd.Cmd):
         className, ids = args.split()
 
         try:
-            globals()[className]
+            global className
         except KeyError:
             print("** class doesn't exist **")
             return
@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
         className, ids, attr, value = args.split()
 
         try:
-            globals()['className']
+            global className
         except KeyError:
             print("** class doesn't exist **")
             return
@@ -138,12 +138,12 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, className=None):
         """print all instances created from the classNamepassed"""
         if className is None:
-            print("** class name missing")
+            print("** class name missing **")
 
         try:
-            globals()['className']
+            global className 
         except KeyError:
-            print("class doesn't exist")
+            print("** class doesn't exist **")
 
         list
 
