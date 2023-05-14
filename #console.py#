@@ -5,7 +5,6 @@ This is a command interpreter for our airbnb clone
 import cmd
 from models import storage
 from models.base_model import BaseModel
-from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -145,11 +144,11 @@ class HBNBCommand(cmd.Cmd):
             cls = globals()[className]
         except KeyError:
             print("class doesn't exist")
-            return
 
         storage.reload()
+        print(storage.all())
         instances = \
-            [obj for obj in storage.all().values() if isinstance(obj, cls)]
+            [obj for obj in storage.all().values if isinstance(obj, cls)]
         result = [str(obj) for obj in instances]
         print(result)
 

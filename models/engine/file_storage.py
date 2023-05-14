@@ -9,13 +9,13 @@ import os
 
 
 class FileStorage:
-    """"""
+    """this is the storage for every instance of our models"""
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
         """
-
+        returns all the object instance we have
         """
         return self.__objects
 
@@ -36,9 +36,14 @@ class FileStorage:
                  as file:
                 data = json.load(file)
                 for key, obj_dict in data.items():
+                    model = ""
                     class_name, obj_id = key.split(".")
+                    if class_name == "BaseModel":
+                        model = "base_model"
+                    if class_name == "User":
+                        model = "user"
                     module = \
-                        __import__("models.base_model", fromlist=[class_name])
+                        __import__(f"models.{model}", fromlist=[class_name])
                     cls = getattr(module, class_name)
                     obj = cls(**obj_dict)
                     self.__objects[key] = obj
