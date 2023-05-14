@@ -10,20 +10,20 @@ from . import storage
 class BaseModel:
     """defines all common attributes/methods for other classes: """
     def __init__(self, *args, **kwargs):
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
         if len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "__class__":
                     continue
                 else:
                     if key == "created_at" or key == "updated_at":
-                        value = datetime.datetime.fromisoformat(value)
+                        value = datetime.fromisoformat(value)
                         setattr(self, key, value)
                     else:
                         setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now()
+            self.created_at = datetime.now()
             storage.new(self)
 
     def __str__(self):
@@ -31,7 +31,7 @@ class BaseModel:
         return "{} {} {}".format(class_n, self.id, self.__dict__)
 
     def save(self):
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
