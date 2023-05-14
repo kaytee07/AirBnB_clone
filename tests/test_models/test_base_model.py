@@ -7,7 +7,7 @@ Unittest classes inherits unittest.TestCase:
 """
 import sys
 sys.path.append("/models")
-import models
+#import models
 import unittest
 import os
 from datetime import datetime
