@@ -17,7 +17,7 @@ class BaseModel:
                     continue
                 else:
                     if key == "created_at" or key == "updated_at":
-                        value = datetime.datetime.fromisoformat(value)
+                        value = datetime.datetime.isoformat(value)
                         setattr(self, key, value)
                     else:
                         setattr(self, key, value)
