@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing")
 
         try:
-            global()[className]
+            globals()[className]
         except KeyError:
             print("class doesn't exist")
 

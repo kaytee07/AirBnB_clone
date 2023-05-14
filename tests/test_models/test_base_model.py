@@ -5,13 +5,11 @@ Unittest classes inherits unittest.TestCase:
     TestBaseModel_save
     TestBaseModel_to_dict
 """
-import sys
-sys.path.append("/models")
-#import models
+
 import unittest
-import os
 from datetime import datetime
 from models.base_model import BaseModel
+
 
 class TestBaseModel_instantiation(unittest.TestCase):
     """Functions we wrote to test the instantiation of the BaseModel class."""
