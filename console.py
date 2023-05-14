@@ -20,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
         try:
-            cls = global className
+            cls = globals()[className]
         except KeyError:
             print("** class doesn't exist **")
             return
@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         className, ids = args.split()
 
         try:
-            global className
+            globals()[className]
         except KeyError:
             print("** class doesn't exist **")
             return
@@ -71,7 +71,7 @@ class HBNBCommand(cmd.Cmd):
         className, ids = args.split()
 
         try:
-            global className
+            globals()[className]
         except KeyError:
             print("** class doesn't exist **")
             return
@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
         className, ids, attr, value = args.split()
 
         try:
-            global className
+            globals()[className]
         except KeyError:
             print("** class doesn't exist **")
             return
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
         try:
-            global className 
+            globals()[className] 
         except KeyError:
             print("** class doesn't exist **")
 
