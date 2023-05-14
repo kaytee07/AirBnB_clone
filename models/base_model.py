@@ -20,7 +20,8 @@ class BaseModel:
                         # Parse the string into a datetime object
                         datetime_obj = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                         value = datetime.datetime.isoformat(datetime_obj)
-                        setattr(self, key, value)
+                        #Trying to make value a datetime object
+                        setattr(self, key, datetime_obj)
                     else:
                         setattr(self, key, value)
         else:
