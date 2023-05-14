@@ -5,7 +5,6 @@ and deserializes JSON file to instances
 """
 import json
 import os
-#from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -42,6 +41,16 @@ class FileStorage:
                         model = "base_model"
                     if class_name == "User":
                         model = "user"
+                    if class_name == "State":
+                        model = "state"
+                    if class_name == "City":
+                        model = "city"
+                    if class_name == "Amenity":
+                        model = "amenity"
+                    if class_name == "Place":
+                        model = "place"
+                    if class_name == "Review":
+                        model = "review"
                     module = \
                         __import__(f"models.{model}", fromlist=[class_name])
                     cls = getattr(module, class_name)
