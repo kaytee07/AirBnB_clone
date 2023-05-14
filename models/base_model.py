@@ -28,7 +28,7 @@ class BaseModel:
 
     def __str__(self):
         class_n = self.__class__.__name__
-        return f"{class_n} {self.id} {self.__dict__}"
+        return "{} {} {}".format(class_n, self.id, self.__dict__)
 
     def save(self):
         self.updated_at = datetime.datetime.now()
