@@ -115,15 +115,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-# <<<<<<< hbnb
         if not class_id:
             print("** instance id missing **")
             return
-# =======
-        storage.reload()
-        all_objs = storage.all()
-        keys = "{}.{}".format(className, ids)
-# >>>>>>> main
 
         key_attr = class_name + "." + class_id
         try:
@@ -156,15 +150,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-# <<<<<<< hbnb
         if not class_id:
             print("** instance id missing **")
             return
-# =======
-        storage.reload()
-        all_objs = storage.all()
-        keys ="{}.{}".format(className, ids)
-# >>>>>>> main
 
         key_attr = class_name + "." + class_id
         try:
@@ -216,14 +204,8 @@ class HBNBCommand(cmd.Cmd):
 
             args = args.partition(' ')
 
-# <<<<<<< hbnb
             if not attr_name and args[0] != ' ':
                 attr_name = args[0]
-# =======
-        storage.reload()
-        all_objs = storage.all()
-        keys = "{}.{}".format(className, ids)
-# >>>>>>> main
 
             if args[2] and args[2][0] == '\"':
                 attr_val = args[2][1:args[2].find('\"', 1)]
@@ -254,7 +236,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         """print all instances created from the classNamepassed"""
-# <<<<<<< hbnb
+
         list_models = []
 
         if args:
@@ -270,15 +252,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             for key, value in storage._FileStorage__objects.items():
                 list_models.append(str(value))
-# =======
-#         if className is None:
-#             print("** class name missing **")
-
-#         try:
-#             globals()[className] 
-#         except KeyError:
-#             print("** class doesn't exist **")
-# >>>>>>> main
 
         print(list_models)
 
