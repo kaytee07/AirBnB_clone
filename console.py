@@ -249,7 +249,7 @@ class HBNBCommand(cmd.Cmd):
                     list_models.append(str(value))
 
         else:
-            for key, value in storage.all.items():
+            for key, value in storage._FileStorage__objects.items():
                 list_models.append(str(value))
 
         print(list_models)
