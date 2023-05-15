@@ -5,18 +5,18 @@ Unittest classes inherits unittest.TestCase:
     TestBaseModel_save
     TestBaseModel_to_dict
 """
-# import models
+
 import unittest
-import os
 from datetime import datetime
 from models.base_model import BaseModel
+
 
 class TestBaseModel_instantiation(unittest.TestCase):
     """Functions we wrote to test the instantiation of the BaseModel class."""
 
     def test_no_args_instantiates(self):
         self.assertEqual(BaseModel, type(BaseModel()))
-        
+
     def test_id_is_public_str(self):
         self.assertEqual(str, type(BaseModel().id))
 
