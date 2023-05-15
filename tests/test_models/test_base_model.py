@@ -5,7 +5,11 @@ Unittest classes inherits unittest.TestCase:
     TestBaseModel_save
     TestBaseModel_to_dict
 """
+# <<<<<<< hbnb
 
+# =======
+import models
+# >>>>>>> main
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
