@@ -41,7 +41,7 @@ class TestBaseModel_instantiation(unittest.TestCase):
 
     def test_instantiation_with_kwargs(self):
         date_time = datetime.today()
-        dt_iso = date_time.isoformat()
+        date_time_iso = date_time.isoformat()
         base_model = BaseModel(id="540", created_at=date_time_iso, updated_at=date_time_iso)
         self.assertEqual(base_model.id, "540")
         self.assertEqual(base_model.created_at, date_time)
@@ -82,7 +82,7 @@ class TestBaseModel_to_dict(unittest.TestCase):
         date_time = datetime.today()
         base_model = BaseModel()
         base_model.id = "119427"
-        base_model.created_at = bm.updated_at = dt
+        base_model.created_at = base_model.updated_at = date_time
         to_dict = {
             'id': '119427',
             '__class__': 'BaseModel',
