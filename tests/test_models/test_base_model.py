@@ -5,11 +5,15 @@ Unittest classes inherits unittest.TestCase:
     TestBaseModel_save
     TestBaseModel_to_dict
 """
+# <<<<<<< hbnb
+
+# =======
 import models
+# >>>>>>> main
 import unittest
-import os
 from datetime import datetime
 from models.base_model import BaseModel
+
 
 class TestBaseModel_instantiation(unittest.TestCase):
     """Functions we wrote to test the instantiation of the BaseModel class."""
