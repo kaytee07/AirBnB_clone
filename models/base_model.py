@@ -16,7 +16,7 @@ class BaseModel:
                 if key == "__class__":
                     continue
                 if key == "created_at" or key == "updated_at":
-                    value = datetime.datetime.fromisoformat(value)
+                    value = datetime.datetime.isoformat(value)
                     setattr(self, key, value)
                 else:
 # <<<<<<< hbnb
