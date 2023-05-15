@@ -120,7 +120,6 @@ class HBNBCommand(cmd.Cmd):
             return
 
         key_attr = class_name + "." + class_id
-        print(key_attr)
         try:
             print(storage._FileStorage__objects[key_attr])
         except KeyError:
@@ -164,53 +163,76 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, args):
         """update instance based on class and id"""
-        if not args:
+        class_name = class_id = attr_name = attr_val = ""
+        args = args.partition(" ")
+        if args[0]:
+            class_name = args[0]
+        else:
             print("** class name missing **")
             return
 
-        if len(args.split()) == 1:
-            print("** instance id missing **")
-            return
-
-        if len(args.split()) == 2:
-            print("** attribute name missing **")
-            return
-
-        if len(args.split()) == 3:
-            print("** value missing **")
-            return
-
-        className, ids, attr, value = args.split()
-
-        try:
-            globals()[className]
-        except KeyError:
+        if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
 
-        storage.reload()
-        all_objs = storage.all()
-        keys = f"{className}.{ids}"
+        args = args[2].partition(" ")
+        if args[0]:
+            class_id = args[0]
+        else:
+            print("** instance id missing")
+            return
 
-        try:
-            found_obj = all_objs[keys]
+        key_attr = class_name + "." + class_id
 
-            data_type = type(value)
-            if data_type == int:
-                casted_value = int(value)
-            elif data_type == float:
-                casted_value = float(value)
-            elif data_type == str:
-                casted_value = str(value)
-            elif data_type == bool:
-                casted_value = bool(value)
-            else:
-                casted_value = value
-
-            setattr(found_obj, str(attr), casted_value)
-            found_obj.save()
-        except KeyError:
+        if key_attr not in storage.all():
             print("** no instance found **")
+            return
+
+        if '{' in args[2] and '}' in args[2] and \
+           type(eval(args[2])) is dict:
+            kwargs = eval(args[2])
+            args = []
+            for key, value in kwargs.items():
+                args.append(key)
+                args.append(value)
+        else:
+            args = args[2]
+            if args and args[0] == '\"':
+                second_quote = args.find('\"', 1)
+                attr_name = args[1:second_quote]
+                args = args[second_quote + 1:]
+
+            args = args.partition(' ')
+
+            if not attr_name and args[0] != ' ':
+                attr_name = args[0]
+
+            if args[2] and args[2][0] == '\"':
+                attr_val = args[2][1:args[2].find('\"', 1)]
+
+            if not attr_val and args[2]:
+                attr_val = args[2].partition(' ')[0]
+
+            args = [attr_name, attr_val]
+
+        new_dict = storage.all()[key_attr]
+
+        for i, attr_name in enumerate(args):
+            if (i % 2 == 0):
+                attr_val = args[i + 1]
+                if not attr_name:
+                    print("** attribute name missing **")
+                    return
+                if not attr_val:
+                    print("** value missing **")
+                    return
+
+                if attr_name in HBNBCommand.types:
+                    attr_val = HBNBCommand.types[attr_name](attr_val)
+
+                new_dict.__dict__.update({attr_name: attr_val})
+
+            new_dict.save()
 
     def do_all(self, args):
         """print all instances created from the classNamepassed"""
