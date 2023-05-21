@@ -1,0 +1,20 @@
+h1 {
+    color: #484848;
+}
+.places h1{
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+section.places div.houses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+div.houses article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+}
